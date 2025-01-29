@@ -1,42 +1,35 @@
 \version "2.24.1"
 \header {
-  title = "Blues en C para Saxofón"
-  composer = "Ejercicio Completo"
+  title = "Blues en C para Saxofón Alto"
+  composer = "Ejercicio por ChatGPT"
+  instrument = "Saxofón Alto (en Mi♭)"
 }
 
 \score {
-  \relative c' {
-    \key c \major
-    \time 4/4
-    \tempo "Shuffle" 4 = 90
+  \new Staff {
+    \relative c'' {
+      \key c \major
+      \time 4/4
+      \tempo "Moderato" 4 = 100
 
-    % Compases 1-4 (C7)
-    c8\mf ees g c~ c ees d c | g4 ees8 c~ c4 r | 
-    c8 ees g c ees d c g | ees c g ees c4 r8 g' |
+      % Compases 1-4 (C7)
+      c8\accent( ees) f g~ g f ees d | c4 r8 ees8\staccato f\staccato g\staccato f\staccato ees\staccato |
+      c8\accent( ees) f g~ g f ees d | c4 r8 g'8\tenuto( f ees d c) |
 
-    % Compases 5-6 (F7)
-    \key f \major
-    f8\f a c f~ f a g f | c4 a8 f~ f4 r8 c' |
+      % Compases 5-8 (F7 - C7)
+      f8\accent( a) bes c~ c bes a g | f4 r8 a8\staccato bes\staccato c\staccato bes\staccato a\staccato |
+      c,8\accent( ees) f g~ g f ees d | c4 r8 ees8\staccato( d c bes a) |
 
-    % Compases 7-8 (C7)
-    \key c \major
-    c,8 ees g c ees d c g | ees c g' ees c4 r8 ees |
-
-    % Compases 9-12 (G7 - F7 - C7 - G7)
-    \key g \major
-    g8 b d g~ g b a g | 
-    \key f \major
-    f8 a c f~ f a g f |
-    \key c \major
-    c,8 ees g c ees-> d-> c-> g-> |
-    \key g \major
-    g4\fermata r8 b\staccato g4 r \bar "|."
+      % Compases 9-12 (G7 - F7 - C7 - G7)
+      bes8\accent( d) ees f~ f ees d c | bes4 r8 d8\staccato ees\staccato f\staccato ees\staccato d\staccato |
+      c8\accent( ees) f g~ g f ees d | c4 r8 g'8\staccato( f ees d c) |
+    }
   }
   \layout {
     indent = 0
     \context {
       \Staff
-      \override DynamicTextSpanner.style = #'none
+      \override TimeSignature.style = #'numbered
     }
   }
   \midi {}
